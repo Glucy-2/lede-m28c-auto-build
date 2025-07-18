@@ -10,13 +10,12 @@ if [ -d "lede" ]; then
     git pull || { echo "git pull failed"; exit 1; }
 else
     echo "repo dir not exists"
-    git clone "https://github.com/coolsnowwolf/lede.git" || { echo "git clone failed"; exit 1; }
+    git clone --depth=1 "https://github.com/coolsnowwolf/lede.git" || { echo "git clone failed"; exit 1; }
     cd lede
 fi
 
 #cat ../m28c.config > .config
 cat feeds.conf.default > feeds.conf
-echo "" >> feeds.conf
-echo "src-git qmodem https://github.com/FUjr/QModem.git;main" >> feeds.conf
+echo -e "\nsrc-git qmodem https://github.com/FUjr/QModem.git;main" >> feeds.conf
 rm -rf files
 cp -r ../files .
