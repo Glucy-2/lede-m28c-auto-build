@@ -18,15 +18,14 @@ echo 0 > /sys/devices/system/cpu/cpu2/online
 echo 0 > /sys/devices/system/cpu/cpu3/online
 ```
 
+<!--
 ## 截图
-
-主题是 [luci-theme-alpha](https://github.com/derisamedia/luci-theme-alpha) 的修改版本
 
 ![PC 登录](screenshot/pc-login.png)
 ![PC 主界面](screenshot/pc-main.png)
 
 ![小屏设备](screenshot/phone.png)
-
+-->
 ## TODO
 
 * [ ] 在线更新检查
