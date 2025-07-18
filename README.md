@@ -11,12 +11,7 @@
 3. 默认 Wi-Fi SSID: `zzM28C`，密码: `m28cm28c`
 4. 默认 LAN 接口地址: `192.168.28.1`
 5. 默认 root 密码: `password`，后续可能会变更
-6. 默认仅启用两颗核心，如需修改请访问管理员页面->系统->启动项->本地启动脚本（或编辑 /etc/rc.local），注释掉以下命令并重启：
 
-```bash
-echo 0 > /sys/devices/system/cpu/cpu2/online
-echo 0 > /sys/devices/system/cpu/cpu3/online
-```
 
 <!--
 ## 截图
