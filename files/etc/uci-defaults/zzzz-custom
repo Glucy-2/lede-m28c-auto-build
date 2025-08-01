@@ -4,18 +4,17 @@ if test "$is_first_boot" -gt "0"; then
   #echo -e "m28cm28c\nm28cm28c" | (passwd root)
   uci set system.@system[0].hostname='zzM28C'
   uci commit system
-  uci del dhcp.lan.ra_slaac
+  uci del dhcp.lan.dhcpv6
+  uci set dhcp.lan.ra_flags='none'
   uci set network.lan.ipaddr='192.168.28.1'
-  uci add_list network.lan.ip6class='3_1_2v6'
   uci add_list network.lan.ip6class='4_1_2v6'
   uci set cpufreq.global.set='1'
-  uci set cpufreq.cpufreq.minfreq0='600000'
-  uci set cpufreq.cpufreq.maxfreq0='1608000'
   uci commit
   /etc/init.d/network reload
   uci set wireless.radio0.cell_density='0'
+  uci set wireless.radio0.country='CN'
   uci set wireless.default_radio0.ssid='zzM28C'
-  uci set wireless.default_radio0.encryption='psk2+ccmp'
+  uci set wireless.default_radio0.encryption='sae-mixed'
   uci set wireless.default_radio0.key='m28cm28c'
   uci commit wireless
   /etc/init.d/network reload
