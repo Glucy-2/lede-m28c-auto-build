@@ -14,4 +14,9 @@ diff ../m28c.config .config
 echo "make download"
 make download -j8 || { echo "download failed"; exit 1; }
 echo "make lede"
-make V=s -j$(nproc) || { echo "make failed"; exit 1; }
+if ACTIONS_RUNNER_DEBUG || ACTIONS_STEP_DEBUG; then
+    echo "ACTIONS_RUNNER_DEBUG or ACTIONS_STEP_DEBUG is set, using V=s -j1"
+    make V=s -j1 || { echo "make failed"; exit 1; }
+else
+    make -j$(nproc) || { echo "make failed"; exit 1; }
+fi
